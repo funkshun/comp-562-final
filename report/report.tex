@@ -1,0 +1,125 @@
+﻿\documentclass{article}
+\title{Forecasting COVID-19 Cases with Neural Network and LSTM Models}
+\author{}
+\date{May 05, 2020}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section*{Introduction}
+
+The COVID-19 (or coronavirus) pandemic has forced the widespread deployment of
+lockdowns, stay-at-home orders, and other social distancing measures to try and
+contain its spread, while policymakers and health researchers have been
+interested in forecasting the spread of the disease in order to help prepare and
+combat against it. This final project attempts to use machine learning
+techniques, specifically standard feed-forward and LSTM neural networks, to
+forecast future coronavirus cases in the United States for certain counties and
+across the state level in aggregate, based on data for past cases and deaths.
+
+
+\section*{Related Work}
+
+
+A LSTM neural network addresses a particular shortcoming of traditional neural
+networks: an inability to learn long-term dependencies in the network. As a
+result, they are well-suited for modeling time series data, such as the number
+of cases per day in an epidemic. The coronavirus pandemic arrived only recently
+in the United States, but past work on applying feed-forward and LSTM neural
+network models to epidemic forecasting do exist in the literature. Wang et al.
+(2019) used multiple models, including LSTM neural networks, to model an HIV
+epidemic in Guangxi, China, finding evidence for its effectiveness over other
+time-series models. Mussumeci and Coelho (2020) used LSTM in comparison to LASSO
+and Random Forest regression to forecast weekly incidence of Dengue fever in
+Brazil, again finding evidence for LSTM’s effectiveness. With regards to
+forecasting the coronavirus pandemic itself, Tomar and Gupta (2020) used an LSTM
+model to forecast coronavirus cases in India with somewhat decent results. Yang
+et al. (2020) found that an LSTM model trained on 2003 SARS epidemic data
+produced an incidence curve that fit surprisingly well to the real one. In
+contrast, Punn et al. (2020) predicted global cases over 10 days using only
+cases, deaths, and recovered data with both a standard deep neural network and
+an LSTM model, but found in comparison that polynomial regression was superior
+in the end. Nevertheless, these studies indicate potential for using an LSTM
+neural network for coronavirus cases forecasting.\\
+
+Even non-LSTM models, however, can still demonstrate good prediction accuracy. A
+multilayer convolutional neural network using multiple inputs for cases and
+deaths forecasted the total number of confirmed cases in various Chinese cities
+with decent accuracy (Huang et al., 2020). As such, CNNs would also be good to
+try for predicting total cases.\\
+
+
+\section*{Methodology}
+
+Dataset: We use COVID-19 U.S. cases and deaths data from the Center for Systems
+Science and Engineering at Johns Hopkins University, already organized by state
+and county upon download. After a few explorations for different models, we
+decided that the following data transformations should be applied for COVID-19
+confirmed and death cases:
+
+\begin{enumerate}
+    \item Since there are too many counties in the dataset, we cannot create
+    one-hot encodings for each of the counties, and thus we tried to encode
+    different counties by numbers, and view them as discrete quantitative
+    variables.
+
+    \item Create past records for each county. For each past day, the record is
+    added as a new column to the dataframe. 
+
+    \item Normalization of the records. For each county, we calculate their
+    normalized cumulative confirmed cases by $\frac{x-\mu_{x}}{\sigma{x}}$.
+\end{enumerate}
+
+
+
+
+Originally, we also wanted to use Google Community Mobility data, obtained using
+Google’s BigQuery API, as additional inputs into our neural networks. Since
+social distancing, if executed properly, can greatly affect the rate of spread
+of the coronavirus in an area, mobility data showing how much people tend to
+visit certain locations would in theory serve as a proxy for the level of social
+distancing in an area, and help predict the number of future cases. However, we
+ran out of time to properly implement these additional inputs.
+
+
+\subsection*{Data Structure}
+
+Initial tests were done with five to ten days of lookback on case or death
+counts and the mobility data for the day prior to the desired prediction. In
+particular, we try to predict everydays’ confirmed cases for each county by
+their past 5 (or 10) days cumulative confirmed cases, along with their encoded
+location. The model created has two densely connected hidden layers and one
+output layer, utilizing ReLU as the activation function. Since there are too
+many counties, we only chose counties in ten states, including North Carolina,
+New York, California, and Washington, as training sets, and counties in
+Illinois, Texas and Nevada as testing sets. And since we also noticed that
+though we already took a subset of the entire dataset, running the entire 1000
+iterations for learning still is too time consuming, so we decided to take an
+alternative, and instruct the model to stop learning if it observes that the
+loss cannot be further improved for 15 consecutive iterations. For the error
+function, we used root mean-squared error (RMSE) of the predicted cases. Our
+predictions were for the next day.
+
+
+\section*{Results}
+
+\subsection*{LSTM Failure}
+
+Several Long Short Term Memory type neural networks were tried to evaluate the
+effectiveness of Recurrent Neural Nets for time series forecasting. Despite a
+reputation for high accuracies even with relatively simple structures, we were
+unable to achieve performance comparable with non-recurrent models. This is
+almost certainly a failure in data preparation rather than an indictment of the
+model type given its demonstrated success in other similar forecasting
+scenarios. 
+
+\subsection*{Extensions}
+
+Although predicting the number of cases on the next day can still be useful, a
+more relevant metric to train our model on would be the accuracy of the
+predictions for multiple days ahead.
+
+\end{document}
+
