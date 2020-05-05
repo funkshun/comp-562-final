@@ -4,4 +4,4 @@
 *.jpg
 *.pgz
 *.gz
-*/.ipynb_checkpoints/
+.ipynb_checkpoints/
