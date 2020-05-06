@@ -1,4 +1,10 @@
 ﻿\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \title{Forecasting COVID-19 Cases with Neural Network and LSTM Models}
 \author{}
 \date{May 05, 2020}
@@ -6,8 +12,9 @@
 \begin{document}
 
 \maketitle
-\newpage
 
+\begin{multicols}{2}
+  
 \section*{Introduction}
 
 The COVID-19 (or coronavirus) pandemic has forced the widespread deployment of
@@ -102,18 +109,85 @@ loss cannot be further improved for 15 consecutive iterations. For the error
 function, we used root mean-squared error (RMSE) of the predicted cases. Our
 predictions were for the next day.
 
+\end{multicols}
 
 \section*{Results}
 
-\subsection*{LSTM Failure}
+  \begin{figure}[!htb]
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.8\linewidth]{CNNLoss}
+      \label{fig:sfig1}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.8\linewidth]{CNNPred}
+      \label{fig:sfig2}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.8\linewidth]{SLSTMLoss}
+      \label{fig:sfig3}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.8\linewidth]{SLSTMPred}
+      \label{fig:sfig4}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.8\linewidth]{StLSTMLoss}
+      \label{fig:sfig5}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=.8\linewidth]{StLSTMPred}
+      \label{fig:sfig6}
+    \end{subfigure}
+    \caption{Model Training and Predictive Performance}
+    \label{fig:fig1}
+  \end{figure}
 
-Several Long Short Term Memory type neural networks were tried to evaluate the
-effectiveness of Recurrent Neural Nets for time series forecasting. Despite a
-reputation for high accuracies even with relatively simple structures, we were
-unable to achieve performance comparable with non-recurrent models. This is
-almost certainly a failure in data preparation rather than an indictment of the
-model type given its demonstrated success in other similar forecasting
-scenarios. 
+\begin{table}[h!]
+  \begin{tabular}{l | r | r }
+    
+    Model & MSE & MAE \\
+    \hline
+    CNN & 0.042 & 0.002 \\
+    
+    LSTM (Single) & 0.036 & 0.002 \\
+    
+    LSTM (Stacked) & 0.031 & 0.001
+                               
+  \end{tabular}
+  \caption{Model Loss and Error Values}
+  \label{table:1}
+  \end{table}
+\begin{multicols}{2}
+\subsection*{Basic Neural Net}
+
+\subsection*{Convolutional Neural Net}
+
+The CNN model performed significantly better than expected for a simple model.
+It achieved comparable test loss results as the more complex LSTM models below
+and produced reasonable predictions out nearly 20 days from the last trained
+data point. The model was mostly linear, which matched the nature of the
+training data well, though it did diverge slightly from the test data as the
+result of moderate non-linear fluctuations.
+
+\subsection*{LSTM Nerual Net}
+
+The single layer LSTM model achieved moderate predictive performance.
+With data scaled to the range $[0, 1]$, the models predictive power declined
+more rapidly from the last trained data point than the other models.
+This resulted in an overall lower performance on the test data.
+The stacked LSTM model gave markedly better performance,
+maintaining low error even at high distances from the training point.
+However, both LSTM models demonstrated an interesting pattern in that both
+produced a model that decreases in growth rate as the days progress.
+This may be the influence of the memory capability of the LSTM layers,
+as the CNN did not produce this effect. It is this curve that primarily
+contributes to the single layer LSTM model's difficulty maintaining accuracy.
 
 \subsection*{Extensions}
 
@@ -121,5 +195,16 @@ Although predicting the number of cases on the next day can still be useful, a
 more relevant metric to train our model on would be the accuracy of the
 predictions for multiple days ahead.
 
+Additionally, major limitations exist on the in-person testing that generated
+the coronavirus cases data used, as different states and counties may have had
+different levels of access to testing kits or laboratories to process test
+results, or may have had differences in how or when cases were reported. The
+Google Mobility dataset also was collected from users that opted into a certain
+program, restricting how representative it may be. The hope of this project was
+to nevertheless produce a neural network model that could predict future
+coronavirus cases with some degree of accuracy in spite of the noise in the
+data.
+
+\end{multicols}
 \end{document}
 
