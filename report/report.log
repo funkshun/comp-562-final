@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.16)  5 MAY 2020 20:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.16)  5 MAY 2020 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -144,35 +144,61 @@ File: babel.def 2019/10/15 3.35 Babel common definitions
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
-)) (./report.aux)
+))
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count104
+\Gm@cntv=\count105
+\c@Gm@tempcnt=\count106
+\Gm@bindingoffset=\dimen122
+\Gm@wd@mp=\dimen123
+\Gm@odd@mp=\dimen124
+\Gm@even@mp=\dimen125
+\Gm@layoutwidth=\dimen126
+\Gm@layoutheight=\dimen127
+\Gm@layouthoffset=\dimen128
+\Gm@layoutvoffset=\dimen129
+\Gm@dimlist=\toks17
+) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen122
+\scratchcounter=\count107
+\scratchdimen=\dimen130
 \scratchbox=\box53
-\nofMPsegments=\count105
-\nofMParguments=\count106
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen123
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
-\everyMPtoPDFconversion=\toks18
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen131
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
+\everyMPtoPDFconversion=\toks19
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -204,10 +230,6 @@ Package ifluatex Info: LuaTeX not detected.
 (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
 )
-
-(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
-)
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
@@ -226,105 +248,138 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 14.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 14.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--53
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 16.
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--59
+Underfull \hbox (badness 10000) in paragraph at lines 56--61
 
  []
 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 81.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 81.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 79.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 79.
- [2]
-<./images/CNNLoss.png, id=16, 387.4475pt x 279.0425pt>
+<./images/CNNLoss.png, id=13, 387.4475pt x 279.0425pt>
 File: ./images/CNNLoss.png Graphic file (type png)
 <use ./images/CNNLoss.png>
-Package pdftex.def Info: ./images/CNNLoss.png  used on input line 119.
-(pdftex.def)             Requested size: 138.00052pt x 99.39075pt.
-<./images/CNNPred.png, id=18, 402.50375pt x 279.0425pt>
+Package pdftex.def Info: ./images/CNNLoss.png  used on input line 121.
+(pdftex.def)             Requested size: 187.90271pt x 135.33118pt.
+<./images/CNNPred.png, id=15, 402.50375pt x 279.0425pt>
 File: ./images/CNNPred.png Graphic file (type png)
 <use ./images/CNNPred.png>
-Package pdftex.def Info: ./images/CNNPred.png  used on input line 124.
-(pdftex.def)             Requested size: 138.00052pt x 95.6694pt.
-<./images/SLSTMLoss.png, id=19, 393.47pt x 279.0425pt>
+Package pdftex.def Info: ./images/CNNPred.png  used on input line 126.
+(pdftex.def)             Requested size: 187.90271pt x 130.26436pt.
+<./images/SLSTMLoss.png, id=16, 393.47pt x 279.0425pt>
 File: ./images/SLSTMLoss.png Graphic file (type png)
 <use ./images/SLSTMLoss.png>
-Package pdftex.def Info: ./images/SLSTMLoss.png  used on input line 129.
-(pdftex.def)             Requested size: 138.00052pt x 97.86644pt.
-<./images/SLSTMPred.png, id=20, 402.50375pt x 279.0425pt>
+Package pdftex.def Info: ./images/SLSTMLoss.png  used on input line 131.
+(pdftex.def)             Requested size: 187.90271pt x 133.25761pt.
+<./images/SLSTMPred.png, id=17, 402.50375pt x 279.0425pt>
 File: ./images/SLSTMPred.png Graphic file (type png)
 <use ./images/SLSTMPred.png>
-Package pdftex.def Info: ./images/SLSTMPred.png  used on input line 134.
-(pdftex.def)             Requested size: 138.00052pt x 95.6694pt.
-<./images/StLSTMLoss.png, id=21, 387.4475pt x 279.0425pt>
+Package pdftex.def Info: ./images/SLSTMPred.png  used on input line 136.
+(pdftex.def)             Requested size: 187.90271pt x 130.26436pt.
+<./images/StLSTMLoss.png, id=18, 387.4475pt x 279.0425pt>
 File: ./images/StLSTMLoss.png Graphic file (type png)
 <use ./images/StLSTMLoss.png>
-Package pdftex.def Info: ./images/StLSTMLoss.png  used on input line 139.
-(pdftex.def)             Requested size: 138.00052pt x 99.39075pt.
-<./images/StLSTMPred.png, id=22, 402.50375pt x 279.0425pt>
+Package pdftex.def Info: ./images/StLSTMLoss.png  used on input line 141.
+(pdftex.def)             Requested size: 187.90271pt x 135.33118pt.
+<./images/StLSTMPred.png, id=19, 402.50375pt x 279.0425pt>
 File: ./images/StLSTMPred.png Graphic file (type png)
 <use ./images/StLSTMPred.png>
-Package pdftex.def Info: ./images/StLSTMPred.png  used on input line 144.
-(pdftex.def)             Requested size: 138.00052pt x 95.6694pt.
+Package pdftex.def Info: ./images/StLSTMPred.png  used on input line 146.
+(pdftex.def)             Requested size: 187.90271pt x 130.26436pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 117--147
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 119--149
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 117--147
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 119--149
 []$ $[]$
  []
 
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 117--147
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 119--149
 []$ $[]$ 
  []
 
-[3 <./images/CNNLoss.png> <./images/CNNPred.png> <./images/SLSTMLoss.png> <./im
-ages/SLSTMPred.png> <./images/StLSTMLoss.png> <./images/StLSTMPred.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 180--191
-\OT1/cmr/m/n/10 mod-er-ate pre-dic-tive per-for-mance.
- []
 
-[4] (./report.aux)
+Overfull \vbox (10.9837pt too high) has occurred while \output is active []
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
- ) 
+Overfull \vbox (1.90033pt too high) has occurred while \output is active []
+
+
+[2] [3 <./images/CNNLoss.png> <./images/CNNPred.png> <./images/SLSTMLoss.png> <
+./images/SLSTMPred.png> <./images/StLSTMLoss.png> <./images/StLSTMPred.png>]
+(./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3408 strings out of 492167
- 52412 string characters out of 6131558
- 143955 words of memory out of 5000000
- 7748 multiletter control sequences out of 15000+600000
+ 3901 strings out of 492167
+ 59569 string characters out of 6131558
+ 159233 words of memory out of 5000000
+ 8231 multiletter control sequences out of 15000+600000
  7587 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,7n,46p,282b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report.pdf (4 pages, 158076 bytes).
+ 46i,7n,46p,282b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report.pdf (3 pages, 160782 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

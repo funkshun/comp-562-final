@@ -11,7 +11,8 @@
     "subcaption"
     "multicol"
     "inputenc"
-    "babel")
+    "babel"
+    "geometry")
    (LaTeX-add-labels
     "fig:sfig1"
     "fig:sfig2"
