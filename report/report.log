@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.16)  5 MAY 2020 20:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.16)  5 MAY 2020 21:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -170,7 +170,26 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen128
 \Gm@layoutvoffset=\dimen129
 \Gm@dimlist=\toks17
-) (./report.aux)
+) (./report.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -185,8 +204,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
-
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count107
 \scratchdimen=\dimen130
@@ -351,35 +369,37 @@ Overfull \hbox (2.2222pt too wide) in paragraph at lines 119--149
 []$ $[]$ 
  []
 
+[2]
+Underfull \hbox (badness 7981) in paragraph at lines 226--228
+\OT1/cmr/m/n/10 learning fore-cast-ing for Dengue epidemics-
+ []
 
-Overfull \vbox (10.9837pt too high) has occurred while \output is active []
+[3 <./images/CNNLoss.png> <./images/CNNPred.png> <./images/SLSTMLoss.png> <./im
+ages/SLSTMPred.png> <./images/StLSTMLoss.png> <./images/StLSTMPred.png>]
+[4] (./report.aux)
 
+LaTeX Warning: There were multiply-defined labels.
 
-Overfull \vbox (1.90033pt too high) has occurred while \output is active []
-
-
-[2] [3 <./images/CNNLoss.png> <./images/CNNPred.png> <./images/SLSTMLoss.png> <
-./images/SLSTMPred.png> <./images/StLSTMLoss.png> <./images/StLSTMPred.png>]
-(./report.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 3901 strings out of 492167
- 59569 string characters out of 6131558
- 159233 words of memory out of 5000000
- 8231 multiletter control sequences out of 15000+600000
+ 3902 strings out of 492167
+ 59571 string characters out of 6131558
+ 151230 words of memory out of 5000000
+ 8232 multiletter control sequences out of 15000+600000
  7587 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,7n,46p,282b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report.pdf (3 pages, 160782 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report.pdf (4 pages, 163755 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
