@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.16)  5 MAY 2020 21:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.16)  5 MAY 2020 21:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -308,69 +308,69 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 16.
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--55
+Underfull \hbox (badness 10000) in paragraph at lines 38--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--61
+Underfull \hbox (badness 10000) in paragraph at lines 59--64
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 81.
+(Font)              <7> on input line 86.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 81.
+(Font)              <5> on input line 86.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<./images/CNNLoss.png, id=13, 387.4475pt x 279.0425pt>
+<./images/CNNLoss.png, id=10, 387.4475pt x 279.0425pt>
 File: ./images/CNNLoss.png Graphic file (type png)
 <use ./images/CNNLoss.png>
-Package pdftex.def Info: ./images/CNNLoss.png  used on input line 121.
+Package pdftex.def Info: ./images/CNNLoss.png  used on input line 126.
 (pdftex.def)             Requested size: 187.90271pt x 135.33118pt.
-<./images/CNNPred.png, id=15, 402.50375pt x 279.0425pt>
+<./images/CNNPred.png, id=12, 402.50375pt x 279.0425pt>
 File: ./images/CNNPred.png Graphic file (type png)
 <use ./images/CNNPred.png>
-Package pdftex.def Info: ./images/CNNPred.png  used on input line 126.
+Package pdftex.def Info: ./images/CNNPred.png  used on input line 131.
 (pdftex.def)             Requested size: 187.90271pt x 130.26436pt.
-<./images/SLSTMLoss.png, id=16, 393.47pt x 279.0425pt>
+<./images/SLSTMLoss.png, id=13, 393.47pt x 279.0425pt>
 File: ./images/SLSTMLoss.png Graphic file (type png)
 <use ./images/SLSTMLoss.png>
-Package pdftex.def Info: ./images/SLSTMLoss.png  used on input line 131.
+Package pdftex.def Info: ./images/SLSTMLoss.png  used on input line 136.
 (pdftex.def)             Requested size: 187.90271pt x 133.25761pt.
-<./images/SLSTMPred.png, id=17, 402.50375pt x 279.0425pt>
+<./images/SLSTMPred.png, id=14, 402.50375pt x 279.0425pt>
 File: ./images/SLSTMPred.png Graphic file (type png)
 <use ./images/SLSTMPred.png>
-Package pdftex.def Info: ./images/SLSTMPred.png  used on input line 136.
+Package pdftex.def Info: ./images/SLSTMPred.png  used on input line 141.
 (pdftex.def)             Requested size: 187.90271pt x 130.26436pt.
-<./images/StLSTMLoss.png, id=18, 387.4475pt x 279.0425pt>
+<./images/StLSTMLoss.png, id=15, 387.4475pt x 279.0425pt>
 File: ./images/StLSTMLoss.png Graphic file (type png)
 <use ./images/StLSTMLoss.png>
-Package pdftex.def Info: ./images/StLSTMLoss.png  used on input line 141.
+Package pdftex.def Info: ./images/StLSTMLoss.png  used on input line 146.
 (pdftex.def)             Requested size: 187.90271pt x 135.33118pt.
-<./images/StLSTMPred.png, id=19, 402.50375pt x 279.0425pt>
+<./images/StLSTMPred.png, id=16, 402.50375pt x 279.0425pt>
 File: ./images/StLSTMPred.png Graphic file (type png)
 <use ./images/StLSTMPred.png>
-Package pdftex.def Info: ./images/StLSTMPred.png  used on input line 146.
+Package pdftex.def Info: ./images/StLSTMPred.png  used on input line 151.
 (pdftex.def)             Requested size: 187.90271pt x 130.26436pt.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 119--149
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 124--154
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 119--149
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 124--154
 []$ $[]$
  []
 
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 119--149
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 124--154
 []$ $[]$ 
  []
 
 [2]
-Underfull \hbox (badness 7981) in paragraph at lines 226--228
+Underfull \hbox (badness 7981) in paragraph at lines 233--235
 \OT1/cmr/m/n/10 learning fore-cast-ing for Dengue epidemics-
  []
 
@@ -382,10 +382,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3902 strings out of 492167
- 59571 string characters out of 6131558
- 151230 words of memory out of 5000000
- 8232 multiletter control sequences out of 15000+600000
+ 3903 strings out of 492167
+ 59583 string characters out of 6131558
+ 151221 words of memory out of 5000000
+ 8233 multiletter control sequences out of 15000+600000
  7587 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,7n,46p,282b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -396,7 +396,7 @@ ts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public
 r10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report.pdf (4 pages, 163755 bytes).
+Output written on report.pdf (4 pages, 162906 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  35 compressed objects within 1 object stream
