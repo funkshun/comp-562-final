@@ -62,7 +62,7 @@ try for predicting total cases.
 
 \section*{Methodology}
 
-Dataset: We use data on U.S. COVID-19 cases and deaths from the Center for
+Data was drawn from  U.S. COVID-19 case and death statistics from the Center for
 Systems Science and Engineering at Johns Hopkins University, already organized
 by state and county upon download. After exploring several models across
 different team members, using cumulative U.S. cases and deaths data for one
@@ -72,8 +72,8 @@ cases and deaths when exploring neural network structures:
 
 \begin{enumerate}
   
-    \item Since there are too many counties in the dataset, we cannot create
-      one-hot encodings for each of the counties, and thus we tried to encode
+    \item Since there are too many counties in the dataset, we cannot create a
+      one-hot encoding for each of the counties, and thus we tried to encode
       different counties by numbers, and view them as discrete quantitative variables.
       For the U.S. country-level aggregate cases and deaths data, this was obviously
       not needed.
@@ -87,13 +87,12 @@ cases and deaths when exploring neural network structures:
 
 \end{enumerate}
 
-Originally, we also wanted to use Google Community Mobility data, obtained using
+We incorporated Google Community Mobility data, obtained using
 Google’s BigQuery API, as additional inputs into our neural networks. Since
 social distancing, if executed properly, can greatly affect the rate of spread
 of the coronavirus in an area, mobility data showing how much people tend to
 visit certain locations would in theory serve as a proxy for the level of social
-distancing in an area, and help predict the number of future cases. However, we
-ran out of time to properly implement these additional inputs.
+distancing in an area, and help predict the number of future cases. 
 
 \subsection*{Model Structure}
 
@@ -206,6 +205,18 @@ program, restricting how representative it may be. The hope of this project was
 to nevertheless produce a neural network model that could predict future
 coronavirus cases with some degree of accuracy in spite of the noise in the
 data.
+
+\subsection*{Impact}
+
+These models represent relatively accurate forecasting tools in the near term.
+However, accuracy degrades as the prediction date distances from the last
+trained date.
+Caution should be used when interpreting long term predictions as trends may not
+be immediately apparent to the observer or the model.
+This does offer strong support for the incorporation of tangentially related
+data to improve the short term forecasting ability of similar models,
+as well as a way to identify data with significant predictive power relative to
+the statistic of interest.
 
 \end{multicols}
 
