@@ -116,6 +116,18 @@ loss cannot be further improved for 15 consecutive iterations. For the error
 function, we used root mean-squared error (RMSE) of the predicted cases. Our
 predictions were for the next day.
 
+\subsection*{Model Structure}
+
+Overall, four models were created to evaluate both standard feed-forward
+and recurrent networks.
+The first standard model consists of two fully connected hidden layers with ReLU
+as the activation function, with each layer containing 128 units.
+The second is a convolutional neural net (CNN) of a 1 dimensional convolution
+aggregated by max pooling.
+The two recurrent networks depend on the Long Short Term Memory (LSTM) model and
+are built on identical layers of 128 LSTM units.
+Both a simple single layer and a stacked double layer were tested.
+
 \end{multicols}
 
 \section*{Results}
