@@ -7,7 +7,7 @@
 \usepackage[english]{babel}
 \usepackage{geometry}
 \geometry{margin=1in}
-\title{Forecasting COVID-19 Cases with Neural Network and LSTM Models}
+\title{Neural Network Comparison for Time Series Forecasting}
 \author{Andy Chen, Boo Fullwood, Yunzhou Liu}
 \date{May 05, 2020}
 
@@ -28,6 +28,9 @@ techniques, specifically standard feed-forward and LSTM neural networks, to
 forecast future coronavirus cases in the United States for certain counties and
 across the state level in aggregate, based on data for past cases and deaths.
 
+Additionally, we use the Google Community Mobility dataset to generate
+additional features for our neural networks in an attempt to improve forecast
+accuracy.
 
 \section*{Related Work}
 
@@ -62,11 +65,13 @@ try for predicting total cases.\\
 
 \section*{Methodology}
 
-Dataset: We use COVID-19 U.S. cases and deaths data from the Center for Systems
-Science and Engineering at Johns Hopkins University, already organized by state
-and county upon download. After a few explorations for different models, we
-decided that the following data transformations should be applied for COVID-19
-confirmed and death cases:
+Dataset: We use data on U.S. COVID-19 cases and deaths from the Center for
+Systems Science and Engineering at Johns Hopkins University, already organized
+by state and county upon download. After exploring several models across
+different team members, using cumulative U.S. cases and deaths data for one
+set of models and county-level U.S. cases data for the other, we decided that
+the following data transformations should be applied for COVID-19 confirmed
+cases and deaths when exploring neural network structures:
 
 \begin{enumerate}
     \item Since there are too many counties in the dataset, we cannot create
@@ -111,6 +116,18 @@ loss cannot be further improved for 15 consecutive iterations. For the error
 function, we used root mean-squared error (RMSE) of the predicted cases. Our
 predictions were for the next day.
 
+\subsection*{Model Structure}
+
+Overall, four models were created to evaluate both standard feed-forward
+and recurrent networks.
+The first standard model consists of two fully connected hidden layers with ReLU
+as the activation function, with each layer containing 128 units.
+The second is a convolutional neural net (CNN) of a 1 dimensional convolution
+aggregated by max pooling.
+The two recurrent networks depend on the Long Short Term Memory (LSTM) model and
+are built on identical layers of 128 LSTM units.
+Both a simple single layer and a stacked double layer were tested.
+
 \end{multicols}
 
 \section*{Results}
@@ -150,7 +167,8 @@ predictions were for the next day.
     \label{fig:fig1}
   \end{figure}
 
-\begin{table}[h!]
+  \begin{table}[h!]
+  \begin{centering}
   \begin{tabular}{l | r | r }
     
     Model & MSE & MAE \\
@@ -164,6 +182,7 @@ predictions were for the next day.
   \end{tabular}
   \caption{Model Loss and Error Values}
   \label{table:1}
+  \end{centering}
 \end{table}
 
   \begin{multicols}{2}
