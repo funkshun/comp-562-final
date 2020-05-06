@@ -74,20 +74,21 @@ the following data transformations should be applied for COVID-19 confirmed
 cases and deaths when exploring neural network structures:
 
 \begin{enumerate}
+  
     \item Since there are too many counties in the dataset, we cannot create
-    one-hot encodings for each of the counties, and thus we tried to encode
-    different counties by numbers, and view them as discrete quantitative
-    variables.
+      one-hot encodings for each of the counties, and thus we tried to encode
+      different counties by numbers, and view them as discrete quantitative variables.
+      For the U.S. country-level aggregate cases and deaths data, this was obviously
+      not needed.
 
-    \item Create past records for each county. For each past day, the record is
-    added as a new column to the dataframe. 
+      \item Normalization of the records. For each county, we calculate their
+        normalized cumulative confirmed cases by $\frac{x-\mu_{x}}{\sigma{x}}$. Although
+        the data being a time series that continually increases (except for the odd
+        instance of reported cases going down in a day) means that this may not be the
+        best way to apply normalization to our dataset, this still helped our models to
+        converge (when compared to not normalizing).
 
-    \item Normalization of the records. For each county, we calculate their
-    normalized cumulative confirmed cases by $\frac{x-\mu_{x}}{\sigma{x}}$.
 \end{enumerate}
-
-
-
 
 Originally, we also wanted to use Google Community Mobility data, obtained using
 Google’s BigQuery API, as additional inputs into our neural networks. Since
@@ -96,25 +97,6 @@ of the coronavirus in an area, mobility data showing how much people tend to
 visit certain locations would in theory serve as a proxy for the level of social
 distancing in an area, and help predict the number of future cases. However, we
 ran out of time to properly implement these additional inputs.
-
-
-\subsection*{Data Structure}
-
-Initial tests were done with five to ten days of lookback on case or death
-counts and the mobility data for the day prior to the desired prediction. In
-particular, we try to predict everydays’ confirmed cases for each county by
-their past 5 (or 10) days cumulative confirmed cases, along with their encoded
-location. The model created has two densely connected hidden layers and one
-output layer, utilizing ReLU as the activation function. Since there are too
-many counties, we only chose counties in ten states, including North Carolina,
-New York, California, and Washington, as training sets, and counties in
-Illinois, Texas and Nevada as testing sets. And since we also noticed that
-though we already took a subset of the entire dataset, running the entire 1000
-iterations for learning still is too time consuming, so we decided to take an
-alternative, and instruct the model to stop learning if it observes that the
-loss cannot be further improved for 15 consecutive iterations. For the error
-function, we used root mean-squared error (RMSE) of the predicted cases. Our
-predictions were for the next day.
 
 \subsection*{Model Structure}
 
@@ -127,6 +109,40 @@ aggregated by max pooling.
 The two recurrent networks depend on the Long Short Term Memory (LSTM) model and
 are built on identical layers of 128 LSTM units.
 Both a simple single layer and a stacked double layer were tested.
+
+\subsection*{Data Structure}
+
+Again, we note that different team members initially explored forecast models in
+different ways, with the idea being to do a model comparison at the end. The
+models were initially constructed so that, for a 6-day period, the first 5 days
+of country-level cases/deaths data were used as inputs, while the 6th day was
+used as the label, when constructing the CNN and LSTM models. For the basic
+2-layer model, a 11-day period of data was used, with the first 10 days of
+county-level cases data being used as inputs to the neural net and the 11th day
+being used as the label. Essentially, each model predicted the number of
+cases/deaths on the next day from the number of cases/deaths from prior days.
+Since there are too many counties in total for the 2-layer NN, we only chose
+counties in ten states, including North Carolina, New York, California, and
+Washington, to use for training the NN. We used counties in Illinois, Texas and
+Nevada as testing sets. For all neural networks trained, the error function was
+the mean-squared error (MSE) of normalized predicted cases.
+
+In the final step, to compare our models using the same data (as opposed to
+country-level for some and county-level for the others), we took the 2-layer NN,
+CNN, LSTM, and stacked LSTM and trained them on state-level COVID-19 cases data,
+normalized in the manner described earlier, and using the past 10 days of data
+to predict cases on the 11th day. In addition, we trained the models again using
+the data on percent changes in mobility from a certain baseline for certain
+categories (retail and recreation, grocery and pharmacy, parks, transit
+stations, workplaces, and residential areas), from the Google Community Mobility
+dataset. These were also normalized similarly to the cases data, as described
+above. For the LSTM model, the mobility data for a certain data was simply
+appended to the end of the cases data for that day, so that a time series of 10
+days of inputs together with the number of cases on the 11th day was formed. For
+the 2-layer NN, each observation used to predict cases on the 11th day was
+already a row vector with each of the past 10 days of cases data as a column. As
+a result, we added each of the past 10 days of data for each mobility category
+as its own column, effectively adding 60 more features to each observation.
 
 \end{multicols}
 
@@ -173,11 +189,14 @@ Both a simple single layer and a stacked double layer were tested.
     
     Model & MSE & MAE \\
     \hline
-    CNN & 0.042 & 0.002 \\
-    
-    LSTM (Single) & 0.036 & 0.002 \\
-    
-    LSTM (Stacked) & 0.031 & 0.001
+    2 Layer NN & 0.00066 & 0.01556 \\
+    2 Layer NN (No Mobility) & 0.00234 & 0.03068 \\
+    CNN & 0.00072 & 0.01617 \\
+    CNN (No Mobility) & 0.00579 & 0.03479 \\
+    LSTM (Single) & 0.00021 & 0.00788 \\
+    LSTM (Single, No Mobility) & 0.00210 & 0.01892 \\
+    LSTM (Stacked) & 0.00022 & 0.00812 \\
+    LSTM (Stacked, No Mobility) & 0.00201 & 0.01837 \\
                                
   \end{tabular}
   \caption{Model Loss and Error Values}
@@ -185,9 +204,16 @@ Both a simple single layer and a stacked double layer were tested.
   \end{centering}
 \end{table}
 
-  \begin{multicols}{2}
-    
-\subsection*{Basic Neural Net}
+\begin{multicols}{2}
+
+  \subsection*{2 Layer Neural Net}
+  This model demonstrated remarkable predictive power despite lacking advanced
+  methods for correlating adjacent time points.
+  Overall accuracy was good, but the model lagged behind actual counts as the
+  predicted date moved away from the training time frame.
+  While less accurate, especially at those distant points, than the more
+  advanced models, this is a good demonstration of the power of simple, dense
+  neural networks.
 
 \subsection*{Convolutional Neural Net}
 
@@ -211,6 +237,28 @@ produced a model that decreases in growth rate as the days progress.
 This may be the influence of the memory capability of the LSTM layers,
 as the CNN did not produce this effect. It is this curve that primarily
 contributes to the single layer LSTM model's difficulty maintaining accuracy.
+
+\subsection{Augmentation with Mobility Data}
+
+Across the board, the models demonstrated little to no improvement with the
+inclusion of mobility data for prediction.
+While it would seem that this information would naturally have predictive power,
+it may be that the relatively simple models tested are not capable of capturing
+the relationship.
+Alternatively, large variability in the relationship between mobility and case
+statistics may arise from differences in viral spread vs. mobility-affecting
+events.
+Areas with early infection times may have high case counts prior to the normally
+corresponding mobility change.
+Overall, it is likely that there is meaningful information in the mobility data,
+but it would require careful alignment with case data to extract.
+
+\subsection*{Additional Comparisons}
+
+We did unfortunately run out of time to properly set up a comparison between our
+neural network models and time-series forecasting models like ARIMA or VAR, or a
+mathematical logistic growth model. With more time, we would have set up such
+comparisons for our report.
 
 \subsection*{Extensions}
 
