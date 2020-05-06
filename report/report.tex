@@ -26,8 +26,7 @@ interested in forecasting the spread of the disease in order to help prepare and
 combat against it. This final project attempts to use machine learning
 techniques, specifically standard feed-forward and LSTM neural networks, to
 forecast future coronavirus cases in the United States for certain counties and
-across the state level in aggregate, based on data for past cases and deaths.
-
+across the state level in aggregate, based on data for past cases and deaths.\\
 Additionally, we use the Google Community Mobility dataset to generate
 additional features for our neural networks in an attempt to improve forecast
 accuracy.
@@ -55,13 +54,11 @@ cases, deaths, and recovered data with both a standard deep neural network and
 an LSTM model, but found in comparison that polynomial regression was superior
 in the end. Nevertheless, these studies indicate potential for using an LSTM
 neural network for coronavirus cases forecasting.\\
-
 Even non-LSTM models, however, can still demonstrate good prediction accuracy. A
 multilayer convolutional neural network using multiple inputs for cases and
 deaths forecasted the total number of confirmed cases in various Chinese cities
 with decent accuracy (Huang et al., 2020). As such, CNNs would also be good to
-try for predicting total cases.\\
-
+try for predicting total cases.
 
 \section*{Methodology}
 
@@ -125,8 +122,7 @@ Since there are too many counties in total for the 2-layer NN, we only chose
 counties in ten states, including North Carolina, New York, California, and
 Washington, to use for training the NN. We used counties in Illinois, Texas and
 Nevada as testing sets. For all neural networks trained, the error function was
-the mean-squared error (MSE) of normalized predicted cases.
-
+the mean-squared error (MSE) of normalized predicted cases.\\
 In the final step, to compare our models using the same data (as opposed to
 country-level for some and county-level for the others), we took the 2-layer NN,
 CNN, LSTM, and stacked LSTM and trained them on state-level COVID-19 cases data,
@@ -144,9 +140,75 @@ already a row vector with each of the past 10 days of cases data as a column. As
 a result, we added each of the past 10 days of data for each mobility category
 as its own column, effectively adding 60 more features to each observation.
 
+\section*{Results}
+
+  \subsection*{2 Layer Neural Net}
+  This model demonstrated remarkable predictive power despite lacking advanced
+  methods for correlating adjacent time points.
+  Overall accuracy was good, but the model lagged behind actual counts as the
+  predicted date moved away from the training time frame.
+  While less accurate, especially at those distant points, than the more
+  advanced models, this is a good demonstration of the power of simple, dense
+  neural networks.
+
+\subsection*{Convolutional Neural Net}
+
+The CNN model performed significantly better than expected for a simple model.
+It achieved comparable test loss results as the more complex LSTM models below
+and produced reasonable predictions out nearly 20 days from the last trained
+data point. The model was mostly linear, which matched the nature of the
+training data well, though it did diverge slightly from the test data as the
+result of moderate non-linear fluctuations.
+
+\subsection*{LSTM Nerual Net}
+
+The single layer LSTM model achieved moderate predictive performance.
+With data scaled to the range $[0, 1]$, the models predictive power declined
+more rapidly from the last trained data point than the other models.
+This resulted in an overall lower performance on the test data.
+The stacked LSTM model gave markedly better performance,
+maintaining low error even at high distances from the training point.
+However, both LSTM models demonstrated an interesting pattern in that both
+produced a model that decreases in growth rate as the days progress.
+This may be the influence of the memory capability of the LSTM layers,
+as the CNN did not produce this effect. It is this curve that primarily
+contributes to the single layer LSTM model's difficulty maintaining accuracy.
+
+\subsection{Augmentation with Mobility Data}
+
+Across the board, the models demonstrated significant improvement when
+incorporating the mobility data.
+This is a good indication of a strong, predictive relationship between case and
+death statistics and the mobility data.
+This intuitively makes sense given the probable origin of these changes,
+but the resilience to time delays between influences and the ability of
+relatively simple models to capture relationships between multiple time series
+is promising. 
+
+\subsection{Additional Comparisons}
+
+We did unfortunately run out of time to properly set up a comparison between our
+neural network models and time-series forecasting models like ARIMA or VAR, or a
+mathematical logistic growth model. With more time, we would have set up such
+comparisons for our report.
+
+\subsection*{Extensions}
+
+Although predicting the number of cases on the next day can still be useful, a
+more relevant metric to train our model on would be the accuracy of the
+predictions for multiple days ahead.\\
+Additionally, major limitations exist on the in-person testing that generated
+the coronavirus cases data used, as different states and counties may have had
+different levels of access to testing kits or laboratories to process test
+results, or may have had differences in how or when cases were reported. The
+Google Mobility dataset also was collected from users that opted into a certain
+program, restricting how representative it may be. The hope of this project was
+to nevertheless produce a neural network model that could predict future
+coronavirus cases with some degree of accuracy in spite of the noise in the
+data.
+
 \end{multicols}
 
-\section*{Results}
 
   \begin{figure}[!htb]
     \begin{subfigure}{.5\textwidth}
@@ -204,78 +266,7 @@ as its own column, effectively adding 60 more features to each observation.
   \end{centering}
 \end{table}
 
-\begin{multicols}{2}
-
-  \subsection*{2 Layer Neural Net}
-  This model demonstrated remarkable predictive power despite lacking advanced
-  methods for correlating adjacent time points.
-  Overall accuracy was good, but the model lagged behind actual counts as the
-  predicted date moved away from the training time frame.
-  While less accurate, especially at those distant points, than the more
-  advanced models, this is a good demonstration of the power of simple, dense
-  neural networks.
-
-\subsection*{Convolutional Neural Net}
-
-The CNN model performed significantly better than expected for a simple model.
-It achieved comparable test loss results as the more complex LSTM models below
-and produced reasonable predictions out nearly 20 days from the last trained
-data point. The model was mostly linear, which matched the nature of the
-training data well, though it did diverge slightly from the test data as the
-result of moderate non-linear fluctuations.
-
-\subsection*{LSTM Nerual Net}
-
-The single layer LSTM model achieved moderate predictive performance.
-With data scaled to the range $[0, 1]$, the models predictive power declined
-more rapidly from the last trained data point than the other models.
-This resulted in an overall lower performance on the test data.
-The stacked LSTM model gave markedly better performance,
-maintaining low error even at high distances from the training point.
-However, both LSTM models demonstrated an interesting pattern in that both
-produced a model that decreases in growth rate as the days progress.
-This may be the influence of the memory capability of the LSTM layers,
-as the CNN did not produce this effect. It is this curve that primarily
-contributes to the single layer LSTM model's difficulty maintaining accuracy.
-
-\subsection{Augmentation with Mobility Data}
-
-Across the board, the models demonstrated little to no improvement with the
-inclusion of mobility data for prediction.
-While it would seem that this information would naturally have predictive power,
-it may be that the relatively simple models tested are not capable of capturing
-the relationship.
-Alternatively, large variability in the relationship between mobility and case
-statistics may arise from differences in viral spread vs. mobility-affecting
-events.
-Areas with early infection times may have high case counts prior to the normally
-corresponding mobility change.
-Overall, it is likely that there is meaningful information in the mobility data,
-but it would require careful alignment with case data to extract.
-
-\subsection*{Additional Comparisons}
-
-We did unfortunately run out of time to properly set up a comparison between our
-neural network models and time-series forecasting models like ARIMA or VAR, or a
-mathematical logistic growth model. With more time, we would have set up such
-comparisons for our report.
-
-\subsection*{Extensions}
-
-Although predicting the number of cases on the next day can still be useful, a
-more relevant metric to train our model on would be the accuracy of the
-predictions for multiple days ahead.
-
-Additionally, major limitations exist on the in-person testing that generated
-the coronavirus cases data used, as different states and counties may have had
-different levels of access to testing kits or laboratories to process test
-results, or may have had differences in how or when cases were reported. The
-Google Mobility dataset also was collected from users that opted into a certain
-program, restricting how representative it may be. The hope of this project was
-to nevertheless produce a neural network model that could predict future
-coronavirus cases with some degree of accuracy in spite of the noise in the
-data.
-
+\newpage
 
 \begin{thebibliography}{7}
 
@@ -315,8 +306,6 @@ China under public health interventions. Journal of Thoracic Disease, 12(3),
 165.
 
 \end{thebibliography}
-
-\end{multicols}
 
 \end{document}
 
